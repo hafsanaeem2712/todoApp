@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listix — Smart, Minimalist Task Workspace</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Lightweight Canvas Confetti for task completion celebration -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <!-- Ambient Gradient Background Lights -->
+  <div class="ambient-mesh mesh-1"></div>
+  <div class="ambient-mesh mesh-2"></div>
+  <div class="ambient-mesh mesh-3"></div>
+
+  <!-- SCREEN 1: Microsoft-Style Split Hero Landing Page -->
+  <div id="hero-screen" class="view-stage active-stage">
+    <!-- Navbar only on Landing Page -->
+    <header class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand" id="brand-nav-trigger" role="button" tabindex="0">
+          <svg class="brand-logo-svg" viewBox="0 0 240 90" fill="none">
+            <rect x="8" y="10" width="224" height="72" rx="18" fill="#CFD6C4" stroke="#657166" stroke-width="2.5"/>
+            <rect x="14" y="14" width="212" height="64" rx="14" fill="#FFFFFF" stroke="#DAEBE3" stroke-width="1.5"/>
+            <rect x="92" y="4" width="56" height="14" rx="6" fill="#FDE8D3" stroke="#657166" stroke-width="2"/>
+            <circle cx="120" cy="11" r="3" fill="#657166"/>
+            <rect x="28" y="32" width="22" height="22" rx="6" fill="#99CDD8"/>
+            <path d="M33 43L38 48L46 38" stroke="#657166" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="64" y="52" font-family="-apple-system, sans-serif" font-size="30" font-weight="900" letter-spacing="-0.8" fill="#657166">
+              Lis<tspan fill="#3b8796">tix</tspan>
+            </text>
+            <circle cx="198" cy="46" r="14" fill="#F3C3B2"/>
+            <text x="193" y="52" font-family="sans-serif" font-size="16" font-weight="900" fill="#FFFFFF">✓</text>
+          </svg>
+        </div>
+
+        <div class="nav-links">
+          <button type="button" class="theme-toggle-btn" id="theme-toggle-nav" aria-label="Toggle theme">🌙</button>
+          <span class="status-pill">Production Ready</span>
+          <button type="button" id="nav-launch-btn" class="nav-btn-accent">Launch App</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="brand-pill-badge">
+          <span class="badge-dot"></span>
+          Intelligent Daily Flow
+        </div>
+
+        <h1 class="hero-headline">
+          Focus on what <span class="highlight-text">matters</span>.
+        </h1>
+
+        <p class="hero-subtext">
+          Capture tasks, plan your daily agenda, and streamline your workflow with a distraction-free, beautifully organized productivity suite.
+        </p>
+
+        <div class="cta-cluster">
+          <button type="button" id="launch-app-cta" class="primary-cta-btn">
+            <span>Get Started</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          
+          <button type="button" id="scroll-features-btn" class="secondary-cta-btn">
+            Explore Features
+          </button>
+        </div>
+
+        <div class="quick-highlights">
+          <div class="highlight-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Local Persistence
+          </div>
+          <div class="highlight-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Priority Organization
+          </div>
+          <div class="highlight-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Dark & Light Modes
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column Visual Mockup -->
+      <div class="hero-visual-stage">
+        <div class="stage-backdrop-plate"></div>
+        <div class="mockup-card card-nav">
+          <div class="mockup-header-row">
+            <span class="mock-avatar"></span>
+            <div class="mock-text-line" style="width: 70px;"></div>
+          </div>
+          <div class="mockup-nav-item active">
+            <span class="mock-icon sun"></span> My Day
+            <span class="mock-counter">3</span>
+          </div>
+          <div class="mockup-nav-item">
+            <span class="mock-icon star"></span> Important
+            <span class="mock-counter">1</span>
+          </div>
+          <div class="mockup-nav-item">
+            <span class="mock-icon cal"></span> Planned
+          </div>
+          <div class="mockup-nav-item">
+            <span class="mock-icon check"></span> Completed
+          </div>
+        </div>
+
+        <div class="mockup-card card-tasks">
+          <div class="card-bar">
+            <h3>Tasks — Workspace</h3>
+            <span class="stage-badge">Live Preview</span>
+          </div>
+          <div class="mock-task-row done">
+            <span class="mock-chk">✓</span>
+            <span class="mock-title">Finalize Listix architecture plan</span>
+            <span class="mock-tag" style="background:#CFD6C4;">Setup</span>
+          </div>
+          <div class="mock-task-row">
+            <span class="mock-chk empty"></span>
+            <span class="mock-title">Implement HTML5, CSS3, & LocalStorage</span>
+            <span class="mock-tag" style="background:#FDE8D3;">Dev</span>
+          </div>
+          <div class="mock-task-row">
+            <span class="mock-chk empty"></span>
+            <span class="mock-title">Deploy live demo on GitHub Pages</span>
+            <span class="mock-tag" style="background:#F3C3B2;">Release</span>
+          </div>
+          <div class="mock-quick-input">
+            <span class="plus-sign">+</span> Add a task...
+          </div>
+        </div>
+
+        <div class="floating-badge badge-clock">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#657166" stroke-width="2.2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10" fill="#FDE8D3"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+
+        <div class="floating-badge badge-book">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#657166" stroke-width="2.2" stroke-linecap="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" fill="#DAEBE3"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: ChatGPT/Gemini-Style Full Dashboard Layout -->
+  <div id="app-workspace" class="workspace-layout hidden-stage">
+    
+    <!-- Collapsible Sidebar / Slider Drawer -->
+    <aside id="app-sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <svg class="brand-logo-svg" viewBox="0 0 240 90" fill="none" style="width: 120px; height: 40px;">
+            <rect x="8" y="10" width="224" height="72" rx="18" fill="#CFD6C4" stroke="#657166" stroke-width="2.5"/>
+            <rect x="14" y="14" width="212" height="64" rx="14" fill="#FFFFFF" stroke="#DAEBE3" stroke-width="1.5"/>
+            <rect x="92" y="4" width="56" height="14" rx="6" fill="#FDE8D3" stroke="#657166" stroke-width="2"/>
+            <circle cx="120" cy="11" r="3" fill="#657166"/>
+            <rect x="28" y="32" width="22" height="22" rx="6" fill="#99CDD8"/>
+            <path d="M33 43L38 48L46 38" stroke="#657166" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="64" y="52" font-family="-apple-system, sans-serif" font-size="30" font-weight="900" fill="#657166">
+              Lis<tspan fill="#3b8796">tix</tspan>
+            </text>
+            <circle cx="198" cy="46" r="14" fill="#F3C3B2"/>
+            <text x="193" y="52" font-family="sans-serif" font-size="16" font-weight="900" fill="#FFFFFF">✓</text>
+          </svg>
+        </div>
+        <button type="button" id="sidebar-close-btn" class="icon-toggle-btn" title="Toggle Sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <!-- Live Productivity Progress Widget -->
+      <div class="sidebar-progress-box">
+        <div class="progress-info">
+          <span>Completion</span>
+          <strong id="progress-percent-label">0%</strong>
+        </div>
+        <div class="progress-track">
+          <div id="progress-bar-fill" class="progress-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Navigation Views inside Sidebar -->
+      <nav class="sidebar-nav">
+        <p class="sidebar-group-title">Views</p>
+        <button type="button" class="sidebar-item filter-btn active" data-filter="all">
+          <span class="item-icon">📋</span>
+          <span class="item-name">All Tasks</span>
+          <span class="item-badge" id="badge-all">0</span>
+        </button>
+
+        <button type="button" class="sidebar-item filter-btn" data-filter="active">
+          <span class="item-icon">⏳</span>
+          <span class="item-name">Active</span>
+          <span class="item-badge" id="badge-active">0</span>
+        </button>
+
+        <button type="button" class="sidebar-item filter-btn" data-filter="completed">
+          <span class="item-icon">✅</span>
+          <span class="item-name">Completed</span>
+          <span class="item-badge" id="badge-completed">0</span>
+        </button>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <button type="button" id="clear-completed-btn" class="sidebar-action-btn">
+          🗑️ Clear Completed
+        </button>
+        <button type="button" id="return-landing-btn" class="sidebar-return-btn">
+          &larr; Back to Overview
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-panel">
+      <!-- Top Bar with Sidebar Trigger, Theme Toggle & Live Search -->
+      <div class="main-topbar">
+        <button type="button" id="sidebar-toggle-btn" class="icon-toggle-btn" title="Open Sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        
+        <div class="topbar-title-block">
+          <h2 id="current-view-title">All Tasks</h2>
+          <span id="task-stats" class="topbar-stats">0 tasks remaining</span>
+        </div>
+
+        <!-- Real-Time Search Bar -->
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="task-search-input" placeholder="Search tasks...">
+        </div>
+
+        <!-- Dark/Light Mode Button inside Workspace -->
+        <button type="button" class="theme-toggle-btn" id="theme-toggle-workspace" aria-label="Toggle theme">🌙</button>
+      </div>
+
+      <!-- Gemini-Style Floating Task Input Bar with Priority Selector -->
+      <div class="input-container">
+        <form id="todo-form" class="gemini-input-form" autocomplete="off">
+          <input 
+            type="text" 
+            id="todo-input" 
+            placeholder="Add a new task or priority here..." 
+            maxlength="150"
+            required
+          >
+          
+          <div class="priority-select-wrapper">
+            <select id="priority-select" title="Set task priority">
+              <option value="medium">⚡ Medium</option>
+              <option value="high">🔥 High</option>
+              <option value="low">🌱 Low</option>
+            </select>
+          </div>
+
+          <button type="submit" id="add-btn" class="gemini-submit-btn" aria-label="Add task">
+            <span>Add</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Main Tasks Scrollable Stream -->
+      <div class="tasks-stream-wrapper">
+        <ul id="todo-list" class="tasks-stream-list" aria-live="polite">
+          <!-- Dynamically populated -->
+        </ul>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="stream-empty-state hidden">
+          <div class="empty-sparkle">✨</div>
+          <h3>All caught up!</h3>
+          <p>No tasks found in this view. Use the input bar above to capture your next step.</p>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Features Modal -->
+  <div id="features-modal" class="modal-backdrop hidden-stage" role="dialog" aria-modal="true">
+    <div class="features-modal-card">
+      <div class="modal-header">
+        <h3>Core Features in Listix</h3>
+        <button type="button" id="close-modal-btn" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feature-icon-badge" style="background: var(--c-sky);">💾</div>
+          <div>
+            <h4>Local Persistence</h4>
+            <p>Tasks are automatically stored safely in your browser storage.</p>
+          </div>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon-badge" style="background: var(--c-coral);">⚡</div>
+          <div>
+            <h4>Priority System & Search</h4>
+            <p>Assign Low, Medium, or High priorities and search through tasks instantly.</p>
+          </div>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon-badge" style="background: var(--c-cream);">🌙</div>
+          <div>
+            <h4>Dark & Light Theme</h4>
+            <p>Switch between light pastel ambiance and eye-friendly dark mode.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="modal-start-btn" class="primary-cta-btn" style="width: 100%; justify-content: center;">
+          Launch Workspace
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
